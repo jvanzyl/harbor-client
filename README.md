@@ -27,6 +27,7 @@ The Java tests use the very nice [SSL Context Kickstart][3] project to generate 
 ## Notes/Observations
 
 - It is likely possible to reduce the deployment to speed this up work with the API. I don't think I need the notary, for example, to develop with client and CLI against the Harbor API
+- It is likely possible to adjust the resource requests/limits to something lessen the resource consumption on a laptop
 
 [1]: https://goharbor.io
 [2]: https://swagger.io
