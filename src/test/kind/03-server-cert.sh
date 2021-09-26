@@ -41,3 +41,9 @@ kubectl create namespace ${app}
 
 # Apply
 kubectl apply -f ${secretYaml}
+
+echo
+echo "Remember to add the following entry to your /etc/hosts file:"
+echo
+echo "${app}.local.dev 127.0.0.1"
+echo
