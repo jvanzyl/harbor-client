@@ -1,0 +1,9 @@
+expose:
+  type: ingress
+  tls:
+    certSource: secret
+    secret:
+      secretName: harbor-tls
+  ingress:
+    hosts:
+      core: harbor.local.dev
