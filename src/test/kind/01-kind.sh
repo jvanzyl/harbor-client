@@ -2,6 +2,11 @@
 
 set -o errexit
 
+# ingress-nginx:
+# - helm chart 3.22.0
+# - controller 0.43.0: https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.43.0/deploy/static/provider/kind/deploy.yaml
+ingressVersion=0.43.0
+
 # Based on https://sookocheff.com/post/kubernetes/local-kubernetes-development-with-kind/
 
 reg_name='kind-registry'
@@ -46,7 +51,7 @@ EOF
 # Connect the local Docker registry with the kind network
 docker network connect "kind" "${reg_name}" > /dev/null 2>&1 &
 
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v${ingressVersion}/deploy/static/provider/kind/deploy.yaml
 
 kubectl wait --namespace ingress-nginx \
   --for=condition=ready pod \

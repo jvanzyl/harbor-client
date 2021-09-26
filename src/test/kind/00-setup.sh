@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-./01-harbor-kind.sh
-./02-harbor-tls.sh
-./03-harbor-install.sh
+./01-kind.sh
+./02-local-ca.sh
+./03-server-cert.sh
+./04-install.sh
