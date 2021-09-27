@@ -15,12 +15,13 @@ Out of the box the Harbor Helm chart defaults to exposing the UI with an ingress
 There are scripts in the `src/test/kind` directory that can be run to setup the complete environments. You can run the following scripts:
 
 ```
-01-harbor-kind.sh
-02-harbor-tls.sh
-03-harbor-install.sh
+./01-kind.sh
+./02-local-ca.sh
+./03-server-cert.sh
+./04-install.sh
 ```
 
-After which you should be able to reach `https://harbor.local.dev` from the browser and from the Java client running the tests.
+After which you should be able to reach `https://argocd.local.dev` from the browser and from the Java client running the tests.
 
 The Java tests use the very nice [SSL Context Kickstart][3] project to generate an `SSLFactory` which uses the generated CA and self-signed server certificate as source material. This nicely allows you to use all your locally generated TLS related material without having to modify your local Java runtime.
 
